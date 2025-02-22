@@ -55,7 +55,7 @@ static int pinyin(char *nam, char **args, Options ops, UNUSED(int func)) {
   }
   if (ztrcmp(args[0], "setDictionaryPath") == 0) {
     char *dict = args[1];
-    if (dict == NULL)
+    if (dict == NULL || ztrcmp(dict, "") == 0)
       dict = (char *)"/usr/lib/dict";
     Pinyin::setDictionaryPath(dict);
   } else if (ztrcmp(args[0], "hanziToPinyin") == 0) {
